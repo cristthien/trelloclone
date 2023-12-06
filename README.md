@@ -8,13 +8,7 @@
 + Must not merge code.
 ### Git & Working flow
 #Step 1: Clone Project
-> git clone https://github.com/TeaTung/Business_Social_Network_Flutter_App.git
-
-if any error occur, try:
-
-> git clone http://github.com/TeaTung/Business_Social_Network_Flutter_App.git
-
-
+> git clone https://github.com/cristthien/trelloclone.git
 
 #Step 2: Check local Git branch & remote Git branch.
 
