@@ -1,0 +1,12 @@
+C:\Users\thien\source\repos\trelloclone\trelloclone\bin\Debug\trelloclone.exe.config
+C:\Users\thien\source\repos\trelloclone\trelloclone\bin\Debug\trelloclone.exe
+C:\Users\thien\source\repos\trelloclone\trelloclone\bin\Debug\trelloclone.pdb
+C:\Users\thien\source\repos\trelloclone\trelloclone\bin\Debug\ui.dll
+C:\Users\thien\source\repos\trelloclone\trelloclone\bin\Debug\ui.pdb
+C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.csproj.AssemblyReference.cache
+C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.Properties.Resources.resources
+C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.csproj.GenerateResource.cache
+C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.csproj.CoreCompileInputs.cache
+C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.csproj.CopyComplete
+C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.exe
+C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.pdb
