@@ -4,3 +4,9 @@ C:\Users\thien\source\repos\trelloclone\ui\obj\Debug\ui.csproj.AssemblyReference
 C:\Users\thien\source\repos\trelloclone\ui\obj\Debug\ui.csproj.CoreCompileInputs.cache
 C:\Users\thien\source\repos\trelloclone\ui\obj\Debug\ui.dll
 C:\Users\thien\source\repos\trelloclone\ui\obj\Debug\ui.pdb
+C:\Users\Admin\Github\ui\bin\Debug\ui.dll
+C:\Users\Admin\Github\ui\bin\Debug\ui.pdb
+C:\Users\Admin\Github\ui\obj\Debug\ui.csproj.AssemblyReference.cache
+C:\Users\Admin\Github\ui\obj\Debug\ui.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Github\ui\obj\Debug\ui.dll
+C:\Users\Admin\Github\ui\obj\Debug\ui.pdb

@@ -12,9 +12,13 @@ namespace trelloclone
 {
     public partial class Form1 : Form
     {
+        EventHandlers eventHandlers;
+
+        public EventHandlers EventHandlers { get => eventHandlers; set => eventHandlers = value; }
         public Form1()
         {
             InitializeComponent();
+            EventHandlers = new EventHandlers(WorkSpacePanel, myTablePanel, myTableButton);
         }
     }
 }
