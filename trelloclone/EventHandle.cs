@@ -11,27 +11,70 @@ namespace trelloclone
 {
     public class EventHandlers
     {
-        private Form1 form;
+        //WorkSpace
         private Panel workSpace;
+        //TableSpace
         private Panel tableSpace;
         private List<RJButton> buttons;
         private RJButton myTableButton;
         private Panel textBoxPanel;
         private string textBoxContent = "";
+        //MenuSpace
+        private Timer sideBarTimer;
+        private FlowLayoutPanel sideBar;
+        private RJButton iconButton;
+        bool sidebarExpand = true;
 
         public Panel WorkSpace { get => workSpace; set => workSpace = value; }
         public RJButton MyTableButton { get => myTableButton; set => myTableButton = value; }
         public List<RJButton> Buttons { get => buttons; set => buttons = value; }
         public Panel TableSpace { get => tableSpace; set => tableSpace = value; }
 
-        public EventHandlers(Panel WorkSpace, Panel TableSpace, RJButton myTableButton)
+        public EventHandlers(Panel WorkSpace, Panel TableSpace, RJButton myTableButton, Timer timer, FlowLayoutPanel sideBar, RJButton iconButton)
         {
-            this.form = form;
+            //WorkSpace
             this.workSpace = WorkSpace;
+            //TableSpace
             this.tableSpace = TableSpace;
             this.myTableButton = myTableButton;
             this.myTableButton.Click += myTableButton_Click;
             buttons = new List<RJButton>();
+            //MenuSpace
+            this.sideBarTimer = timer;
+            this.sideBarTimer.Interval = 1;
+            this.sideBarTimer.Tick += Timer_Tick;
+            this.sideBar = sideBar;
+            this.iconButton = iconButton;
+            this.iconButton.Click += IconButton_Click;
+        }
+
+        private void IconButton_Click(object sender, EventArgs e)
+        {
+            sideBarTimer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            //Set the Minimum and maxim
+            if(sidebarExpand)
+            {
+                //if sidebar is expand, minimize
+                sideBar.Width -= 10;
+                if(sideBar.Width == sideBar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sideBarTimer.Stop();
+                }    
+            }
+            else
+            {
+                sideBar.Width += 10;
+                if (sideBar.Width == sideBar.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sideBarTimer.Stop();
+                }
+            }    
         }
 
         public void myTableButton_Click(object sender, EventArgs e)
@@ -46,7 +89,7 @@ namespace trelloclone
             {
                 Width = Const.panelTextBoxWidth,
                 Height = Const.panelTextBoxHeight,
-                Location = new Point(0, 0),
+                Location = new Point(Const.myTableWidth, 0),
                 BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/myTablePanel.png"),
                 BackgroundImageLayout = ImageLayout.Stretch,
                 BackColor = Color.Transparent
@@ -131,8 +174,28 @@ namespace trelloclone
                 }
                 Buttons.Add(newButton);
                 TableSpace.Controls.Add(newButton);
+                RJButton optBtn = new RJButton()
+                {
+                    Width = 25,
+                    Height = 20,
+                    BorderRadius = 10,
+                    BorderSize = 0,
+                    Location = new Point(newButton.Location.X + newButton.Width - 30, newButton.Location.Y + 10),
+                    BackColor= Color.Transparent,
+                    BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/....png"),
+                    BackgroundImageLayout = ImageLayout.Stretch
+                };
+                optBtn.Click += OptBtn_Click;
+                TableSpace.Controls.Add(optBtn);
+                optBtn.BringToFront();
                 WorkSpace.Controls.Remove(textBoxPanel);
+                textBoxContent = "";
             }
+        }
+
+        private void OptBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click cc");
         }
     }
 }

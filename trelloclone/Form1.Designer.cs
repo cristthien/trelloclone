@@ -33,10 +33,15 @@ namespace trelloclone
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.myTablePanel = new System.Windows.Forms.Panel();
-            this.myTableButton = new ui.RJButton();
             this.WorkSpacePanel = new System.Windows.Forms.Panel();
             this.timerMyTable = new System.Windows.Forms.Timer(this.components);
+            this.sizeBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuPanel = new System.Windows.Forms.Panel();
+            this.iconButton = new ui.RJButton();
+            this.myTablePanel = new System.Windows.Forms.Panel();
+            this.myTableButton = new ui.RJButton();
+            this.sizeBar.SuspendLayout();
+            this.menuPanel.SuspendLayout();
             this.myTablePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,17 +57,71 @@ namespace trelloclone
             this.panel1.Size = new System.Drawing.Size(1400, 45);
             this.panel1.TabIndex = 0;
             // 
-            // myTablePanel
+            // WorkSpacePanel
             // 
-            this.myTablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.WorkSpacePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.myTablePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(51)))), ((int)(((byte)(109)))));
+            this.WorkSpacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(129)))), ((int)(((byte)(217)))));
+            this.WorkSpacePanel.Location = new System.Drawing.Point(70, 45);
+            this.WorkSpacePanel.Margin = new System.Windows.Forms.Padding(0);
+            this.WorkSpacePanel.Name = "WorkSpacePanel";
+            this.WorkSpacePanel.Size = new System.Drawing.Size(1621, 800);
+            this.WorkSpacePanel.TabIndex = 2;
+            // 
+            // sizeBar
+            // 
+            this.sizeBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sizeBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(85)))), ((int)(((byte)(186)))));
+            this.sizeBar.Controls.Add(this.menuPanel);
+            this.sizeBar.Controls.Add(this.myTablePanel);
+            this.sizeBar.Location = new System.Drawing.Point(0, 45);
+            this.sizeBar.Margin = new System.Windows.Forms.Padding(0);
+            this.sizeBar.MaximumSize = new System.Drawing.Size(300, 1000);
+            this.sizeBar.MinimumSize = new System.Drawing.Size(70, 1000);
+            this.sizeBar.Name = "sizeBar";
+            this.sizeBar.Size = new System.Drawing.Size(300, 1000);
+            this.sizeBar.TabIndex = 0;
+            // 
+            // menuPanel
+            // 
+            this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(39)))), ((int)(((byte)(84)))));
+            this.menuPanel.Controls.Add(this.iconButton);
+            this.menuPanel.Location = new System.Drawing.Point(0, 0);
+            this.menuPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(70, 1000);
+            this.menuPanel.TabIndex = 1;
+            // 
+            // iconButton
+            // 
+            this.iconButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconButton.BackgroundImage = global::trelloclone.Properties.Resources.icon;
+            this.iconButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.iconButton.BorderRadius = 0;
+            this.iconButton.BorderSize = 0;
+            this.iconButton.FlatAppearance.BorderSize = 0;
+            this.iconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton.ForeColor = System.Drawing.Color.White;
+            this.iconButton.Location = new System.Drawing.Point(0, 0);
+            this.iconButton.Name = "iconButton";
+            this.iconButton.Size = new System.Drawing.Size(70, 70);
+            this.iconButton.TabIndex = 0;
+            this.iconButton.TextColor = System.Drawing.Color.White;
+            this.iconButton.UseVisualStyleBackColor = false;
+            // 
+            // myTablePanel
+            // 
+            this.myTablePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(85)))), ((int)(((byte)(186)))));
             this.myTablePanel.Controls.Add(this.myTableButton);
-            this.myTablePanel.Location = new System.Drawing.Point(0, 45);
-            this.myTablePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.myTablePanel.Location = new System.Drawing.Point(70, 0);
+            this.myTablePanel.Margin = new System.Windows.Forms.Padding(0);
             this.myTablePanel.Name = "myTablePanel";
-            this.myTablePanel.Size = new System.Drawing.Size(300, 800);
+            this.myTablePanel.Size = new System.Drawing.Size(230, 800);
             this.myTablePanel.TabIndex = 1;
             // 
             // myTableButton
@@ -79,39 +138,29 @@ namespace trelloclone
             this.myTableButton.ForeColor = System.Drawing.Color.White;
             this.myTableButton.Image = global::trelloclone.Properties.Resources.cross;
             this.myTableButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.myTableButton.Location = new System.Drawing.Point(25, 0);
+            this.myTableButton.Location = new System.Drawing.Point(0, 0);
             this.myTableButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.myTableButton.Name = "myTableButton";
-            this.myTableButton.Size = new System.Drawing.Size(250, 50);
+            this.myTableButton.Size = new System.Drawing.Size(215, 50);
             this.myTableButton.TabIndex = 0;
             this.myTableButton.Text = "Các bảng của bạn\r\n";
             this.myTableButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.myTableButton.TextColor = System.Drawing.Color.White;
             this.myTableButton.UseVisualStyleBackColor = false;
             // 
-            // WorkSpacePanel
-            // 
-            this.WorkSpacePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.WorkSpacePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(47)))), ((int)(((byte)(76)))));
-            this.WorkSpacePanel.Location = new System.Drawing.Point(300, 45);
-            this.WorkSpacePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.WorkSpacePanel.Name = "WorkSpacePanel";
-            this.WorkSpacePanel.Size = new System.Drawing.Size(1400, 800);
-            this.WorkSpacePanel.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 681);
+            this.Controls.Add(this.sizeBar);
             this.Controls.Add(this.WorkSpacePanel);
-            this.Controls.Add(this.myTablePanel);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.sizeBar.ResumeLayout(false);
+            this.menuPanel.ResumeLayout(false);
             this.myTablePanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -120,9 +169,12 @@ namespace trelloclone
         #endregion
 
         private Panel panel1;
-        private Panel myTablePanel;
         private Panel WorkSpacePanel;
         private RJButton myTableButton;
         private System.Windows.Forms.Timer timerMyTable;
+        private FlowLayoutPanel sizeBar;
+        private Panel menuPanel;
+        private Panel myTablePanel;
+        private RJButton iconButton;
     }
 }
