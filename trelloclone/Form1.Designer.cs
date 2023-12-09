@@ -37,8 +37,11 @@ namespace trelloclone
             this.timerMyTable = new System.Windows.Forms.Timer(this.components);
             this.sizeBar = new System.Windows.Forms.FlowLayoutPanel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.iconButton = new ui.RJButton();
             this.myTablePanel = new System.Windows.Forms.Panel();
+            this.starBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.calendarBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.alarmBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.iconButton = new ui.RJButton();
             this.myTableButton = new ui.RJButton();
             this.sizeBar.SuspendLayout();
             this.menuPanel.SuspendLayout();
@@ -88,31 +91,15 @@ namespace trelloclone
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(39)))), ((int)(((byte)(84)))));
+            this.menuPanel.Controls.Add(this.starBtn);
+            this.menuPanel.Controls.Add(this.calendarBtn);
+            this.menuPanel.Controls.Add(this.alarmBtn);
             this.menuPanel.Controls.Add(this.iconButton);
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.menuPanel.Name = "menuPanel";
             this.menuPanel.Size = new System.Drawing.Size(70, 1000);
             this.menuPanel.TabIndex = 1;
-            // 
-            // iconButton
-            // 
-            this.iconButton.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.iconButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.iconButton.BackgroundImage = global::trelloclone.Properties.Resources.icon;
-            this.iconButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.iconButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.iconButton.BorderRadius = 0;
-            this.iconButton.BorderSize = 0;
-            this.iconButton.FlatAppearance.BorderSize = 0;
-            this.iconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton.ForeColor = System.Drawing.Color.White;
-            this.iconButton.Location = new System.Drawing.Point(0, 0);
-            this.iconButton.Name = "iconButton";
-            this.iconButton.Size = new System.Drawing.Size(70, 70);
-            this.iconButton.TabIndex = 0;
-            this.iconButton.TextColor = System.Drawing.Color.White;
-            this.iconButton.UseVisualStyleBackColor = false;
             // 
             // myTablePanel
             // 
@@ -123,6 +110,79 @@ namespace trelloclone
             this.myTablePanel.Name = "myTablePanel";
             this.myTablePanel.Size = new System.Drawing.Size(230, 800);
             this.myTablePanel.TabIndex = 1;
+            // 
+            // starBtn
+            // 
+            this.starBtn.BackColor = System.Drawing.Color.Transparent;
+            this.starBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.starBtn.CheckedState.Parent = this.starBtn;
+            this.starBtn.CustomImages.Parent = this.starBtn;
+            this.starBtn.FillColor = System.Drawing.Color.Transparent;
+            this.starBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.starBtn.ForeColor = System.Drawing.Color.White;
+            this.starBtn.HoverState.Parent = this.starBtn;
+            this.starBtn.Image = global::trelloclone.Properties.Resources.star_empty;
+            this.starBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.starBtn.Location = new System.Drawing.Point(10, 150);
+            this.starBtn.Name = "starBtn";
+            this.starBtn.ShadowDecoration.Parent = this.starBtn;
+            this.starBtn.Size = new System.Drawing.Size(50, 50);
+            this.starBtn.TabIndex = 2;
+            // 
+            // calendarBtn
+            // 
+            this.calendarBtn.BackColor = System.Drawing.Color.Transparent;
+            this.calendarBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.calendarBtn.CheckedState.Parent = this.calendarBtn;
+            this.calendarBtn.CustomImages.Parent = this.calendarBtn;
+            this.calendarBtn.FillColor = System.Drawing.Color.Transparent;
+            this.calendarBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.calendarBtn.ForeColor = System.Drawing.Color.White;
+            this.calendarBtn.HoverState.Parent = this.calendarBtn;
+            this.calendarBtn.Image = global::trelloclone.Properties.Resources.calendar;
+            this.calendarBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.calendarBtn.Location = new System.Drawing.Point(10, 100);
+            this.calendarBtn.Name = "calendarBtn";
+            this.calendarBtn.ShadowDecoration.Parent = this.calendarBtn;
+            this.calendarBtn.Size = new System.Drawing.Size(50, 50);
+            this.calendarBtn.TabIndex = 1;
+            // 
+            // alarmBtn
+            // 
+            this.alarmBtn.BackColor = System.Drawing.Color.Transparent;
+            this.alarmBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.alarmBtn.CheckedState.Parent = this.alarmBtn;
+            this.alarmBtn.CustomImages.Parent = this.alarmBtn;
+            this.alarmBtn.FillColor = System.Drawing.Color.Transparent;
+            this.alarmBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.alarmBtn.ForeColor = System.Drawing.Color.White;
+            this.alarmBtn.HoverState.Parent = this.alarmBtn;
+            this.alarmBtn.Image = global::trelloclone.Properties.Resources.alarm;
+            this.alarmBtn.ImageSize = new System.Drawing.Size(30, 30);
+            this.alarmBtn.Location = new System.Drawing.Point(10, 50);
+            this.alarmBtn.Name = "alarmBtn";
+            this.alarmBtn.ShadowDecoration.Parent = this.alarmBtn;
+            this.alarmBtn.Size = new System.Drawing.Size(50, 50);
+            this.alarmBtn.TabIndex = 0;
+            // 
+            // iconButton
+            // 
+            this.iconButton.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconButton.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconButton.BackgroundImage = global::trelloclone.Properties.Resources.icon;
+            this.iconButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.iconButton.BorderRadius = 15;
+            this.iconButton.BorderSize = 0;
+            this.iconButton.FlatAppearance.BorderSize = 0;
+            this.iconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton.ForeColor = System.Drawing.Color.White;
+            this.iconButton.Location = new System.Drawing.Point(10, 0);
+            this.iconButton.Name = "iconButton";
+            this.iconButton.Size = new System.Drawing.Size(50, 50);
+            this.iconButton.TabIndex = 0;
+            this.iconButton.TextColor = System.Drawing.Color.White;
+            this.iconButton.UseVisualStyleBackColor = false;
             // 
             // myTableButton
             // 
@@ -176,5 +236,8 @@ namespace trelloclone
         private Panel menuPanel;
         private Panel myTablePanel;
         private RJButton iconButton;
+        private Guna.UI2.WinForms.Guna2Button alarmBtn;
+        private Guna.UI2.WinForms.Guna2Button calendarBtn;
+        private Guna.UI2.WinForms.Guna2Button starBtn;
     }
 }
