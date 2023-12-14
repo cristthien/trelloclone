@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,11 +12,14 @@ namespace trelloclone
 {
     public class EventHandlers
     {
+        private Form1 mainForm;
+
         //WorkSpace
         private Panel workSpace;
         //TableSpace
         private Panel tableSpace;
         private List<RJButton> buttons;
+        private List<RJButton> otpBtn;
         private RJButton myTableButton;
         private Panel textBoxPanel;
         private string textBoxContent = "";
@@ -29,16 +33,19 @@ namespace trelloclone
         public RJButton MyTableButton { get => myTableButton; set => myTableButton = value; }
         public List<RJButton> Buttons { get => buttons; set => buttons = value; }
         public Panel TableSpace { get => tableSpace; set => tableSpace = value; }
+        public List<RJButton> OtpBtn { get => otpBtn; set => otpBtn = value; }
 
-        public EventHandlers(Panel WorkSpace, Panel TableSpace, RJButton myTableButton, Timer timer, FlowLayoutPanel sideBar, RJButton iconButton)
+        public EventHandlers(Form1 form, Panel WorkSpace, Panel TableSpace, RJButton myTableButton, Timer timer, FlowLayoutPanel sideBar, RJButton iconButton)
         {
+            this.mainForm = form;
             //WorkSpace
             this.workSpace = WorkSpace;
             //TableSpace
             this.tableSpace = TableSpace;
             this.myTableButton = myTableButton;
             this.myTableButton.Click += myTableButton_Click;
-            buttons = new List<RJButton>();
+            Buttons = new List<RJButton>();
+            OtpBtn = new List<RJButton>();
             //MenuSpace
             this.sideBarTimer = timer;
             this.sideBarTimer.Interval = 1;
@@ -122,6 +129,13 @@ namespace trelloclone
             };
             text.TextChanged += Text_TextChanged;
 
+            Label noteLineLabel = new Label()
+            {
+                Text = "Tiêu đề bảng là bắt buộc",
+                Width = Const.panelTextBoxWidth,
+                Location = new Point(25, text.Location.Y + text.Height + 10),
+            };
+
             RJButton newBtn = new RJButton()
             {
                 Width = Const.panelTextBoxWidth - 50,
@@ -131,10 +145,11 @@ namespace trelloclone
                 Text = "Tạo Bảng Mới",
                 Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold)
             };
-            newBtn.Click += NewBtn_Click;
+            newBtn.Click += CreateTable_Click;
             textBoxPanel.Controls.Add(headLabel);
             textBoxPanel.Controls.Add(titleLabel);
             textBoxPanel.Controls.Add(text);
+            textBoxPanel.Controls.Add(noteLineLabel);
             textBoxPanel.Controls.Add(newBtn);
         }
 
@@ -144,7 +159,7 @@ namespace trelloclone
             textBoxContent = ((TextBox)sender).Text;
         }
 
-        private void NewBtn_Click(object sender, EventArgs e)
+        private void CreateTable_Click(object sender, EventArgs e)
         {
             if (textBoxContent == "")
             {
@@ -161,7 +176,8 @@ namespace trelloclone
                     BackColor = Color.Transparent,
                     Text = textBoxContent,
                     Font = new Font("Microsoft Sans Serif", 10,FontStyle.Bold),
-                    TextAlign = ContentAlignment.MiddleLeft
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    Tag = Buttons.Count
                 };
                 if (Buttons.Count == 0)
                 {
@@ -172,7 +188,6 @@ namespace trelloclone
                     int lastIndex = Buttons.Count - 1;
                     newButton.Location = new Point(Buttons[lastIndex].Location.X, Buttons[lastIndex].Location.Y + Buttons[lastIndex].Height);
                 }
-                Buttons.Add(newButton);
                 TableSpace.Controls.Add(newButton);
                 RJButton optBtn = new RJButton()
                 {
@@ -183,19 +198,67 @@ namespace trelloclone
                     Location = new Point(newButton.Location.X + newButton.Width - 30, newButton.Location.Y + 10),
                     BackColor= Color.Transparent,
                     BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/....png"),
-                    BackgroundImageLayout = ImageLayout.Stretch
+                    BackgroundImageLayout = ImageLayout.Stretch,
+                    Tag = newButton.Tag
                 };
                 optBtn.Click += OptBtn_Click;
                 TableSpace.Controls.Add(optBtn);
                 optBtn.BringToFront();
                 WorkSpace.Controls.Remove(textBoxPanel);
                 textBoxContent = "";
+                Buttons.Add(newButton); //Nhet button Table vua tao vao trong mang de quan ly
+                OtpBtn.Add(optBtn);
             }
         }
 
         private void OptBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Click cc");
+            RJButton btn = (RJButton)sender;
+            Guna2GradientButton deleteTableButton = new Guna2GradientButton()
+            {
+                Text = "Delete Table",
+                Location = new Point(btn.Location.X, btn.Location.Y + btn.Height + 55),
+                BorderRadius = 10,
+                BackColor = Color.Transparent,
+                Tag = btn.Tag,
+            };
+            mainForm.Controls.Add(deleteTableButton);
+            deleteTableButton.BringToFront();
+            deleteTableButton.Click += DeleteTableButton_Click;
+        }
+
+        private void Update_Location_After_Remove(int index)
+        {
+            if (index == Buttons.Count - 1)
+            {
+                Buttons.RemoveAt(Convert.ToInt32(index));
+                OtpBtn.RemoveAt(Convert.ToInt32(index));
+            }    
+            else 
+            {
+                for (int i = Buttons.Count - 1; i > index; i--)
+                {
+                    Buttons[i].Location = Buttons[i - 1].Location;
+                    Buttons[i].Tag = Buttons[i - 1].Tag;
+                    OtpBtn[i].Location = OtpBtn[i - 1].Location;
+                    OtpBtn[i].Tag = OtpBtn[i - 1].Tag;
+                }
+                Buttons.RemoveAt(Convert.ToInt32(index));
+                OtpBtn.RemoveAt(Convert.ToInt32(index));
+            }
+        }
+
+        private void DeleteTableButton_Click(object sender, EventArgs e)
+        {
+            Guna2GradientButton btn = (Guna2GradientButton)sender;
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa bảng này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                TableSpace.Controls.Remove(Buttons[Convert.ToInt32(btn.Tag)]);
+                TableSpace.Controls.Remove(OtpBtn[Convert.ToInt32(btn.Tag)]);
+                Update_Location_After_Remove(Convert.ToInt32(btn.Tag));
+            }
+            mainForm.Controls.Remove(btn);
         }
     }
 }

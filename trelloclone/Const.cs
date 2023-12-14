@@ -12,5 +12,7 @@ namespace trelloclone
         public static int myTableHeight = 50;
         public static int panelTextBoxWidth = 300;
         public static int panelTextBoxHeight = 300;
+        public static int panelOptBoxWidth = 300;
+        public static int panelOptBoxHeight = 150;
     }
 }

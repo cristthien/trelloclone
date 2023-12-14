@@ -19,7 +19,7 @@ namespace trelloclone
         {
             InitializeComponent();
             sizeBar.Anchor = AnchorStyles.Left | AnchorStyles.Top;
-            EventHandlers = new EventHandlers(WorkSpacePanel, myTablePanel, myTableButton, timerMyTable, sizeBar, iconButton);
+            EventHandlers = new EventHandlers(this, WorkSpacePanel, myTablePanel, myTableButton, timerMyTable, sizeBar, iconButton);
         }
     }
 }

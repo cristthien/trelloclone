@@ -37,10 +37,10 @@ namespace trelloclone
             this.timerMyTable = new System.Windows.Forms.Timer(this.components);
             this.sizeBar = new System.Windows.Forms.FlowLayoutPanel();
             this.menuPanel = new System.Windows.Forms.Panel();
-            this.myTablePanel = new System.Windows.Forms.Panel();
             this.starBtn = new Guna.UI2.WinForms.Guna2Button();
             this.calendarBtn = new Guna.UI2.WinForms.Guna2Button();
             this.alarmBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.myTablePanel = new System.Windows.Forms.Panel();
             this.iconButton = new ui.RJButton();
             this.myTableButton = new ui.RJButton();
             this.sizeBar.SuspendLayout();
@@ -101,16 +101,6 @@ namespace trelloclone
             this.menuPanel.Size = new System.Drawing.Size(70, 1000);
             this.menuPanel.TabIndex = 1;
             // 
-            // myTablePanel
-            // 
-            this.myTablePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(85)))), ((int)(((byte)(186)))));
-            this.myTablePanel.Controls.Add(this.myTableButton);
-            this.myTablePanel.Location = new System.Drawing.Point(70, 0);
-            this.myTablePanel.Margin = new System.Windows.Forms.Padding(0);
-            this.myTablePanel.Name = "myTablePanel";
-            this.myTablePanel.Size = new System.Drawing.Size(230, 800);
-            this.myTablePanel.TabIndex = 1;
-            // 
             // starBtn
             // 
             this.starBtn.BackColor = System.Drawing.Color.Transparent;
@@ -164,6 +154,16 @@ namespace trelloclone
             this.alarmBtn.ShadowDecoration.Parent = this.alarmBtn;
             this.alarmBtn.Size = new System.Drawing.Size(50, 50);
             this.alarmBtn.TabIndex = 0;
+            // 
+            // myTablePanel
+            // 
+            this.myTablePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(85)))), ((int)(((byte)(186)))));
+            this.myTablePanel.Controls.Add(this.myTableButton);
+            this.myTablePanel.Location = new System.Drawing.Point(70, 0);
+            this.myTablePanel.Margin = new System.Windows.Forms.Padding(0);
+            this.myTablePanel.Name = "myTablePanel";
+            this.myTablePanel.Size = new System.Drawing.Size(230, 800);
+            this.myTablePanel.TabIndex = 1;
             // 
             // iconButton
             // 
