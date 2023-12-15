@@ -92,6 +92,11 @@ namespace trelloclone
 
         private void CreateTextBox(RJButton btn)
         {
+            if (textBoxPanel != null)
+            {
+                WorkSpace.Controls.Remove(textBoxPanel);
+                textBoxContent = "";
+            }
             textBoxPanel = new Panel()
             {
                 Width = Const.panelTextBoxWidth,
@@ -146,11 +151,31 @@ namespace trelloclone
                 Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold)
             };
             newBtn.Click += CreateTable_Click;
+
+            RJButton exitButton = new RJButton()
+            {
+                Width = Const.exitBtnWidth,
+                Height = Const.exitBtnWidth,
+                Location = new Point(textBoxPanel.Width - Const.exitBtnWidth - 15, 15),
+                BackgroundColor = Color.Transparent,
+                BorderRadius = 10,
+                BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/close.png"),
+                BackgroundImageLayout = ImageLayout.Stretch,
+            };
+            exitButton.Click += ExitButton_Click;
             textBoxPanel.Controls.Add(headLabel);
             textBoxPanel.Controls.Add(titleLabel);
             textBoxPanel.Controls.Add(text);
             textBoxPanel.Controls.Add(noteLineLabel);
             textBoxPanel.Controls.Add(newBtn);
+            textBoxPanel.Controls.Add(exitButton);
+            exitButton.BringToFront();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            WorkSpace.Controls.Remove(textBoxPanel);
+            textBoxContent = "";
         }
 
         private void Text_TextChanged(object sender, EventArgs e)

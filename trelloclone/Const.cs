@@ -14,5 +14,6 @@ namespace trelloclone
         public static int panelTextBoxHeight = 300;
         public static int panelOptBoxWidth = 300;
         public static int panelOptBoxHeight = 150;
+        public static int exitBtnWidth = 25;
     }
 }
