@@ -10,3 +10,17 @@ C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.csproj
 C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.csproj.CopyComplete
 C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.exe
 C:\Users\thien\source\repos\trelloclone\trelloclone\obj\Debug\trelloclone.pdb
+C:\Users\Admin\Github\trelloclone\bin\Debug\trelloclone.exe.config
+C:\Users\Admin\Github\trelloclone\bin\Debug\trelloclone.exe
+C:\Users\Admin\Github\trelloclone\bin\Debug\trelloclone.pdb
+C:\Users\Admin\Github\trelloclone\bin\Debug\ui.dll
+C:\Users\Admin\Github\trelloclone\bin\Debug\ui.pdb
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.csproj.AssemblyReference.cache
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.Form1.resources
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.Properties.Resources.resources
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.csproj.GenerateResource.cache
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.csproj.CopyComplete
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.exe
+C:\Users\Admin\Github\trelloclone\obj\Debug\trelloclone.pdb
+C:\Users\Admin\Github\trelloclone\bin\Debug\Guna.UI2.dll
